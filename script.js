@@ -148,28 +148,95 @@
 // })
 // console.log(squares)
 
-const numbers = [1,2,3,4,5,6,7,8,9,10]
+// const numbers = [1,2,3,4,5,6,7,8,9,10]
 
-const even = numbers.filter(function(num){
-    return num % 2 == 0
-})
-console.log(even)
+// const even = numbers.filter(function(num){
+//     return num % 2 == 0
+// })
+// console.log(even)
 
-const books = [
+// const books = [
+//     {
+//         title : "dacey",
+//         year : 2023
+//     },
+//     {
+//         title : "sassy",
+//         year : 2024
+//     },
+//     {
+//         title : "cute",
+//         year: 2025
+//     },
+// ]
+// const newBook = books.filter(function(book){
+//     return book.year>2000
+// })
+// console.log(newBook)
+
+// const files = ["app.js","a.c","index.html","style.css"]
+// const result = files.filter(function(file){
+//     return file.endsWith(".js")
+// })
+// console.log(result)
+
+//reduce hof 
+
+const numbers = [1,2,3,4,5]
+const sum = numbers.reduce(function(accumulator,num){
+    return num + accumulator
+},0)
+
+console.log(sum)
+
+const myCart = [
     {
-        title : "dacey",
-        year : 2023
+        product : "Apple",
+        price : 200,
+        qty : 2
     },
     {
-        title : "sassy",
-        year : 2024
+        product : "Orange",
+        price : 400,
+        qty : 4
     },
     {
-        title : "cute",
-        year: 2025
-    },
+        product : "Pineapple",
+        price : 300,
+        qty : 3
+    }
 ]
-const newBook = books.filter(function(book){
-    return book.year>2000
+//total qty, total price
+const output = myCart.reduce(function(accumulator,item){
+    accumulator.totalQty += item.qty 
+    accumulator.totalPrice += item.price * item.qty
+    return accumulator
+},{totalQty : 0, totalPrice : 0})
+console.log(output)
+
+const students = [
+    {
+        name : "Manish", 
+        marks : 700, 
+        status : "pass"
+    },
+    {
+        name : "Anish", 
+        marks : 900, 
+        status : "pass"
+    },
+    {
+        name : "Pranjal", 
+        marks : 400, 
+        status : "fail"
+    },
+    {
+        name : "Aashish", 
+        marks : 200, 
+        status : "fail"
+    }
+]
+const result = students.filter(function(student){
+      return student.marks>300 && student.name.endsWith("sh") && student.status == "pass"
 })
-console.log(newBook)
+console.log(result)
